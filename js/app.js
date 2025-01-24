@@ -28,6 +28,7 @@ function getWeather(url) {
             searchInput.style.borderColor = '';
         })
         .catch(() => {
+            searchBox.style.top = '0';
             searchInput.style.borderColor = 'red';
             notFoundMess.style.opacity = '1';
         });
