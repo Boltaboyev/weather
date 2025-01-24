@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .fa-regular,
+        .fa-solid {
+            font-size: 1.5rem;
+        }
+
+        .fa-snowflake {
+            color: #34a3e3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="h-[100vh] w-full flex items-center justify-center bg-blue-100 p-[20px]">
+
+
+        <div class="flex flex-col gap-[25px] w-[430px] overflow-hidden bg-white shadow-lg rounded-lg p-6 relative">
+            <!-- Search Form -->
+            <div id="searchBox"
+                class="z-[9999]  bg-white absolute border border-white rounded-lg left-0 top-[0] h-full w-full z-[999] flex p-[20px] flex-col gap-[20px] justify-center">
+                <div class="flex justify-center items-center gap-[10px]">
+                    <i class="fa-regular fa-sun text-[orange]"></i>
+                    <i class="fa-solid fa-cloud-rain text-blue-400"></i>
+                    <i class="fa-solid fa-cloud-bolt text-gray-600"></i>
+                    <i class="fa-regular fa-snowflake !text-blue"></i>
+                </div>
+                <form class="flex flex-col gap-[10px] wf-full" id="searchForm">
+                    <small id="notFoundMess" class="text-red-500 font-[500] opacity-0">City not found</small>
+                    <input required id="searchInput" type="text"
+                        class="outline-none text-xl font-bold border border-blue-400 w-full p-[10px] rounded-lg"
+                        placeholder="City name" id="searchLocation">
+                    <button type="submit"
+                        class="bg-blue-500 text-white text-lg font-semibold p-[10px] rounded-lg cursor-pointer hover:bg-blue-700">Search</button>
+                </form>
+
+                <span id="openSearch"
+                    class="z-[9999] absolute bottom-[-29px] self-start bg-blue-500 p-[2px_20px] text-white rounded-[0_0_10px_10px] cursor-pointer hover:bg-blue-700 transition duration-[.2s]"
+                    id="closeSearch">
+                    <i class="bx bx-search"></i>
+                </span>
+            </div>
+
+            <!-- Location -->
+            <div class="text-center">
+                <h1 id="location" class="text-2xl font-bold text-gray-800"></h1>
+                <p class="text-gray-600">Country: <span id="country">Country name</span></p>
+            </div>
+
+            <!-- Weather Information -->
+            <div class="">
+                <div class="flex justify-between items-center">
+                    <div class="text-gray-600">
+                        <p class="text-lg font-semibold">Weather</p>
+                        <p class="capitalize" id="weatherInfo">Weather info</p>
+                    </div>
+                    <img src="" id="weatherIcon" class="w-[50px] h-[50px] rounded-full bg-blue-100 border border-blue-100">
+                </div>
+            </div>
+
+            <!-- Temperature -->
+            <div class="flex flex-col gap-[10px]">
+                <div class="flex justify-between items-center text-lg font-bold">
+                    <p class="text-gray-800">
+                        Temperature
+                    </p>
+                    <span class="text-blue-600" id="temperature">0°C</span>
+                </div>
+
+                <p class="text-gray-600">Feels like: <span id="feelsLikeTemp">0°C</span></p>
+
+            </div>
+
+            <!-- Wind -->
+            <div class="">
+                <di class="flex justify-between items-center gap-[15px]">
+                    <p class="text-lg font-semibold text-gray-800">Wind</p>
+                    <span class="h-[1px] w-full bg-gray-200"></span>
+                    <i class="bx bx-wind"></i>
+                </di>
+
+                <div class="grid grid-cols-2 gap-[10px]">
+                    <div class="text-gray-600 flex flex-col items-center justify-center gap-[5px]">
+                        <p class="text-blue-500">Speed</p>
+                        <span id="windSpeed">0 m/s</span>
+                    </div>
+
+                    <div class="text-gray-600 flex flex-col items-center justify-center gap-[5px]">
+                        <p class="text-blue-500">Direction</p>
+                        <span id="windDirect">0°</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 border-t border-gray-200 py-[10px]">
+                <!-- Pressure and Humidity -->
+                <div>
+                    <p class="text-lg font-semibold text-gray-800">Atmospheric Info</p>
+                    <p class="text-gray-600">Pressure: <span id="pressure">00 hPa</span></p>
+                    <p class="text-gray-600">Humidity: <span id="humidity">0%</span></p>
+                </div>
+
+                <!-- Sunrise and Sunset -->
+                <div class="flex flex-col items-end">
+                    <p class="text-lg font-semibold text-gray-800">Sunrise & Sunset</p>
+                    <p class="text-gray-600">Sunrise: <span id="sunrise">00:00 AM</span></p>
+                    <p class="text-gray-600">Sunset: <span id="sunset">00:00 PM</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./app.bundle.js"></script>
+</body>
+
+</html>
