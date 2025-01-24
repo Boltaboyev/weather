@@ -20,20 +20,14 @@ const sunset = document.getElementById('sunset');
 
 function getWeather(url) {
     fetch(url)
-        .then((res) => {
-            if (!res.ok) {
-                throw new Error('City not found');
-            }
-            return res.json();
-        })
+        .then((res) => res.json())
         .then((data) => {
             searchBox.style.transition = '.5s';
             searchBox.style.top = '-100%';
             showWeatherUi(data);
             searchInput.style.borderColor = '';
         })
-        .catch((err) => {
-            console.error(err);
+        .catch(() => {
             searchInput.style.borderColor = 'red';
             notFoundMess.style.opacity = '1';
         });
